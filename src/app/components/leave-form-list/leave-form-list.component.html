@@ -1,0 +1,27 @@
+<div class="container">
+    <!-- No data message -->
+    <p *ngIf="LeaveForm.length <= 0" class="no-data text-center">There is no leave form added yet!</p>
+    <br><br>
+    <!-- Employee list -->
+    <table class="table table-bordered" *ngIf="LeaveForm.length > 0">
+      <thead class="table-success">
+        <tr>
+          <th class="priority-3" scope="col">Form ID</th>
+          <th class="priority-1" scope="col">Name</th>
+          <th class="priority-2" scope="col">Type</th>
+          <th class="priority-1" scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let leaveForm of LeaveForm; let i = index">
+          <th class="priority-3" scope="row">{{leaveForm._id}}</th>
+          <td class="priority-1">{{leaveForm.name}}</td>
+          <td class="priority-2">{{leaveForm.leaveType}}</td>
+          <td class="priority-1">
+            <p>Day: {{leaveForm.leaveDate.day}}</p>
+            <p>Month: {{leaveForm.leaveDate.month}}</p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
